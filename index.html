@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#21163f">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<title>For My Little Queen ♟</title>
+<style>
+:root{--ink:#25183f;--plum:#352457;--pink:#ffdce8;--cream:#fff8ef;--gold:#f3c969;--lilac:#e8dcff;--mint:#d8f3e8}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at top,#5a427d 0,#21163f 55%,#130e27 100%);color:var(--cream);font-family:Georgia,'Times New Roman',serif;min-height:100vh}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(920px,100%);margin:auto;padding:22px 16px 48px}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#e8dafa;font:12px/1.4 Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+.pill{border:1px solid #ffffff40;border-radius:99px;padding:8px 12px}
+.hero{text-align:center;padding:46px 12px 28px;position:relative;overflow:hidden}
+.kicker{color:var(--gold);letter-spacing:3px;font:12px Arial,sans-serif;text-transform:uppercase}
+h1{font-size:clamp(38px,8vw,76px);line-height:.98;margin:16px 0;color:#fff6e8;font-weight:normal}
+h1 em{color:var(--pink);font-style:normal}
+.subtitle{font-size:18px;line-height:1.7;color:#e8def5;max-width:580px;margin:0 auto 24px}
+.chess{font-size:clamp(35px,8vw,66px);letter-spacing:7px;margin:12px 0 18px;filter:drop-shadow(0 5px 10px #0005)}
+.btn{border:0;border-radius:999px;padding:14px 22px;background:var(--gold);color:#27193d;font-weight:bold;box-shadow:0 8px 0 #b78d3e;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #b78d3e}
+.quiet{background:transparent;color:#f8eefe;border:1px solid #ffffff55;box-shadow:none}
+.board-wrap{display:flex;justify-content:center;margin:24px auto 10px}
+.board{display:grid;grid-template-columns:repeat(4,1fr);width:min(300px,80vw);border:5px solid #f5d9a0;border-radius:8px;overflow:hidden;box-shadow:0 12px 35px #0005}
+.square{aspect-ratio:1;display:grid;place-items:center;font-size:clamp(28px,8vw,44px)}
+.square:nth-child(odd){background:#eedfc8;color:#2b1c45}.square:nth-child(even){background:#755d91;color:#fff2d8}
+.square:nth-child(5),.square:nth-child(7),.square:nth-child(10),.square:nth-child(12),.square:nth-child(13),.square:nth-child(15){background:#755d91;color:#fff2d8}
+.panel{display:none;background:var(--cream);color:var(--ink);border-radius:24px;padding:clamp(20px,5vw,38px);margin:22px 0;box-shadow:0 18px 50px #0003;animation:rise .45s ease both}
+.panel.active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.eyebrow{font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:#8868a8}
+.panel h2{font-size:clamp(27px,5vw,42px);font-weight:normal;line-height:1.1;margin:10px 0 16px}
+.panel p{font-size:17px;line-height:1.8;margin:12px 0}
+.signature{font-style:italic;color:#75518d;margin-top:22px!important}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.actions .btn{box-shadow:none}
+.note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin-top:22px}
+.note{min-height:135px;border:0;border-radius:16px;padding:18px 14px;text-align:left;color:var(--ink);background:var(--pink);box-shadow:0 5px 0 #e9b5ca;transition:transform .15s}
+.note:nth-child(2){background:#fff0b8;box-shadow:0 5px 0 #e5d18b}.note:nth-child(3){background:var(--lilac);box-shadow:0 5px 0 #cbb9ef}.note:nth-child(4){background:var(--mint);box-shadow:0 5px 0 #add9c9}
+.note strong{display:block;font-size:17px;margin-bottom:9px}.note span{font:13px/1.5 Arial,sans-serif}
+.note.revealed{transform:rotate(-1deg) scale(1.02);outline:2px dashed #8d6baa;outline-offset:3px}
+.chess-quote{background:#efe7f8;border-left:5px solid #8d6baa;padding:16px 18px;border-radius:0 12px 12px 0;font-size:17px;line-height:1.7;margin:20px 0}
+.prayer{background:#f5edf9;border-radius:16px;padding:18px}
+.footer{text-align:center;color:#d7c8e9;font:12px/1.7 Arial,sans-serif;padding:22px 8px}
+.progress{height:4px;background:#ffffff20;border-radius:99px;overflow:hidden;margin-top:20px}.bar{height:100%;width:0;background:var(--gold);transition:width .3s}
+.hidden{display:none!important}
+.spark{position:fixed;pointer-events:none;opacity:.5;color:#ffe4a4;animation:float 7s ease-in-out infinite;font-size:18px}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(15deg)}}
+@media(min-width:700px){.hero{padding-top:60px}.panel{margin:28px 0}}
+</style>
+</head>
+<body>
+<div class="spark" style="top:13%;left:7%">✦</div><div class="spark" style="top:28%;right:8%;animation-delay:1s">♡</div><div class="spark" style="top:72%;left:5%;animation-delay:2s">♕</div>
+<main class="wrap">
+  <div class="topline"><span>Made with love ♡</span><span class="pill">A little gift for you</span></div>
+  <section class="hero" id="welcome">
+    <div class="kicker">A special message before KJSEA</div>
+    <div class="chess" aria-label="chess pieces">♔ ♕ ♗ ♘</div>
+    <h1>To my little<br><em>queen.</em></h1>
+    <p class="subtitle">Every champion has a story. This little corner of the internet is just for you, sis — because you deserve to be reminded how loved, capable, and wonderfully you are.</p>
+    <div class="board-wrap"><div class="board" aria-label="decorative chessboard">
+      <div class="square">♜</div><div class="square">♞</div><div class="square">♝</div><div class="square">♛</div>
+      <div class="square">♟</div><div class="square">♡</div><div class="square">♟</div><div class="square">✦</div>
+      <div class="square">✦</div><div class="square">♙</div><div class="square">♡</div><div class="square">♙</div>
+      <div class="square">♖</div><div class="square">♘</div><div class="square">♕</div><div class="square">♔</div>
+    </div></div>
+    <button class="btn" onclick="showPanel('letter')">Make your first move ♟ →</button>
+    <p style="font-size:13px;color:#d7c8e9;margin-top:24px">A message from your big sister, made especially for you.</p>
+  </section>
+
+  <section class="panel" id="letter">
+    <div class="eyebrow">Move 01 · From my heart</div>
+    <h2>Dear my sweet little sister, ♡</h2>
+    <p>With your KJSEA exams just around the corner, I wanted to make you something that reminds you of who you are — especially on a day when you might feel nervous or unsure.</p>
+    <p>I admire how hardworking you are, how you keep going, and how you stand firm in what you believe in. Your faith in God is beautiful, your heart is strong, and your sweetness makes life brighter. I love your creativity, your supportive nature, and the way you show up for the people you care about.</p>
+    <p>Sometimes you may not realise how special those things are, so let me remind you: you are more than a student preparing for an exam. You are a thoughtful, brave, creative girl with a future full of possibilities.</p>
+    <p>As you sit for each paper, take a breath, read carefully, and trust what you have learned. If a question feels difficult, don't panic — pause, think, and move to the next question if you need to. One hard question does not erase all the things you know.</p>
+    <p>And please remember, little queen: you never have to earn my love with marks. I will be cheering for you before the exams, during them, and after the last paper. I hope you make yourself proud, too.</p>
+    <p class="signature">With all my love, always — your big sister. ❤️</p>
+    <div class="actions"><button class="btn" onclick="showPanel('notes')">Next move: open your notes →</button></div>
+  </section>
+
+  <section class="panel" id="notes">
+    <div class="eyebrow">Move 02 · Little notes for big feelings</div>
+    <h2>Open one whenever you need it. 💌</h2>
+    <p>Tap each note. Imagine your big sister sitting beside you, reminding you of these things.</p>
+    <div class="note-grid">
+      <button class="note" onclick="reveal(this,'It is okay to feel nervous. Breathe slowly, say a little prayer, and take it one question at a time. You have prepared, and you can do this. ♡')"><strong>When I'm nervous 🌷</strong><span>Tap to open your note…</span></button>
+      <button class="note" onclick="reveal(this,'One difficult paper does not decide your whole future. Let it go when it is over, rest your mind, and give the next paper a fresh start. ♟')"><strong>When a paper is hard ♟</strong><span>Tap to open your note…</span></button>
+      <button class="note" onclick="reveal(this,'Rest is not laziness. Drink water, eat, sleep, and let your mind recover. You deserve care while you work hard. 💗')"><strong>When I'm tired 🌙</strong><span>Tap to open your note…</span></button>
+      <button class="note" onclick="reveal(this,'Look at how far you have come. Your effort matters, your character matters, and you are deeply loved. I am proud to be your big sister. 👑')"><strong>When I doubt myself 👑</strong><span>Tap to open your note…</span></button>
+    </div>
+    <div class="actions"><button class="btn" onclick="showPanel('chess')">A chess reminder ♜ →</button></div>
+  </section>
+
+  <section class="panel" id="chess">
+    <div class="eyebrow">Move 03 · A little chess wisdom</div>
+    <h2>Think like a chess player. ♟</h2>
+    <div class="chess-quote">You don't win a game by panicking over one move. You pause, look at the board, think about your options, and make the best move you can.</div>
+    <p>That's how I want you to approach your exams, too. Take your time. Look carefully at what each question is asking. If you get stuck, breathe and consider your next move. You don't have to solve everything at once — just focus on the move in front of you.</p>
+    <p><strong>And remember:</strong> a queen is powerful, but even a queen needs a plan. Your plan is to stay calm, use what you know, and keep going. ♕</p>
+    <div class="actions"><button class="btn" onclick="showPanel('prayer')">Next move: a prayer 🙏 →</button></div>
+  </section>
+
+  <section class="panel" id="prayer">
+    <div class="eyebrow">Move 04 · A prayer for you</div>
+    <h2>May God go with you. 🙏🏽</h2>
+    <div class="prayer">
+      <p>Dear God,</p>
+      <p>Please watch over my little sister as she prepares for her KJSEA exams. Give her wisdom to understand the questions, a calm mind to remember what she has learned, courage when she feels nervous, and strength when she feels tired.</p>
+      <p>Protect her health, guide her steps, and help her do her very best. Remind her that she is never alone and that her worth is not defined by a result. May her hard work bear fruit, and may she walk into each paper with peace and confidence.</p>
+      <p>Amen. ❤️</p>
+    </div>
+    <div class="actions"><button class="btn" onclick="showPanel('final')">One last thing, sis… ♡</button></div>
+  </section>
+
+  <section class="panel" id="final">
+    <div class="eyebrow">Final move · Always your big sister</div>
+    <h2>Whatever the result, you are my girl. 👑</h2>
+    <p>I hope you get results that make you happy, and I pray that good opportunities open up for you. But before any result comes, I want you to know this: I am already proud of your effort, your faith, your courage, and the person you are becoming.</p>
+    <p>Thank you for being your sweet, creative, strong-hearted, supportive self. Never lose the goodness in you. Keep standing for what is right, keep dreaming, keep learning, and keep trusting God through every chapter.</p>
+    <p>When you finish your last paper, please take a moment to celebrate yourself. You made it through something important, and that deserves to be recognised. 🎉</p>
+    <p style="font-size:22px;color:#75518d;text-align:center;line-height:1.6"><strong>All the very best in your KJSEA, my little queen. ♕</strong><br>You've got this. I love you endlessly. ❤️</p>
+    <p class="signature" style="text-align:center">— Your big sister, who is always in your corner ♡</p>
+    <div class="actions" style="justify-content:center"><button class="btn" onclick="restart()">Read it again ↺</button><button class="btn quiet" onclick="window.print()">Print / save as PDF</button></div>
+  </section>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="footer">A little website, made with love. ♡<br>Tip: change the words in the code to add her name or your own special memory.</div>
+</main>
+<script>
+const order=['welcome','letter','notes','chess','prayer','final'];
+function showPanel(id){
+  document.getElementById('welcome').classList.add('hidden');
+  order.slice(1).forEach(x=>document.getElementById(x).classList.toggle('active',x===id));
+  const n=order.indexOf(id);document.getElementById('bar').style.width=(Math.max(0,n)/(order.length-1)*100)+'%';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function reveal(button,message){
+  const span=button.querySelector('span');
+  if(button.classList.contains('revealed')){span.textContent='Tap to open your note…';button.classList.remove('revealed')}
+  else{span.textContent=message;button.classList.add('revealed')}
+}
+function restart(){
+  order.slice(1).forEach(x=>document.getElementById(x).classList.remove('active'));
+  document.getElementById('welcome').classList.remove('hidden');
+  document.querySelectorAll('.note').forEach(b=>{b.classList.remove('revealed');b.querySelector('span').textContent='Tap to open your note…'});
+  document.getElementById('bar').style.width='0%';window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+<script>if ("serviceWorker" in navigator && location.protocol.startsWith("http")) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {})); }</script>
+</body>
+</html>

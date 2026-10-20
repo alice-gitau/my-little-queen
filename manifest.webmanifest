@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "For My Little Queen",
+  "short_name": "Little Queen",
+  "description": "A heartfelt KJSEA encouragement surprise from your big sister.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#21163f",
+  "theme_color": "#21163f",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
