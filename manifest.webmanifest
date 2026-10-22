@@ -10,10 +10,12 @@
   "theme_color": "#21163f",
   "icons": [
     {
-      "src": "./icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      
+      "src": "./her-photo.JPG",
+"sizes": "any",
+"type": "image/jpeg",
+"purpose": "any"
+  
     }
   ]
 }
