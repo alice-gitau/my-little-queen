@@ -1,3 +1,4 @@
+
 {
   "id": "./",
   "name": "For My Little Queen",
@@ -6,16 +7,14 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#21163f",
-  "theme_color": "#21163f",
+  "background_color": "#2b163f",
+  "theme_color": "#2b163f",
   "icons": [
     {
-
-      "src": "./her-photo.JPG",
-"sizes": "any",
-"type": "image/jpeg",
-"purpose": "any"
-  
+      "src": "./her-photo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
